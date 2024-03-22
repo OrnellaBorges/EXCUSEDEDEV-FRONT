@@ -1,0 +1,37 @@
+.header {
+  background-color: var(--dark-green);
+  color: white;
+  padding: 20px;
+  font-family: var(--lato);
+  border: 3px solid blue;
+}
+.headerDiv {
+  /* border: 3px solid yellow; */
+  display: flex;
+}
+
+.header .logo {
+  font-size: 1.5rem;
+}
+
+.header .nav-list {
+  list-style: none;
+  display: flex;
+}
+
+.header .nav-item {
+  margin-right: 20px;
+}
+
+.header .nav-item a {
+  color: white;
+  text-decoration: none;
+}
+
+.header .nav-item a:hover {
+  text-decoration: underline;
+}
+.nav {
+  border: 3px solid red;
+  padding: 5px;
+}
