@@ -1,9 +1,12 @@
 import React from "react";
 
-export default function Sentence() {
+type SentenceProps = {
+  excuse: string;
+};
+export default function Sentence({ excuse }: SentenceProps) {
   return (
-    <p>
-      Bonjour, veuillez cliquer sur le bouton pour afficher une nouvelle excuse.
-    </p>
+    <div>
+      <p>"{excuse}"</p>
+    </div>
   );
 }

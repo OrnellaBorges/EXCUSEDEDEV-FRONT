@@ -1,4 +1,27 @@
-export const ExcusesApi = [
+import axios from "axios";
+//import { ResponsePlayerType } from "../types/playerType";
+//const url = "https://data.latelier.co/training/tennis_stats/headtohead.json";
+
+//debut de l'url
+const api_url = "http://localhost:5000";
+//import { config } from "../../config";
+
+// creer une fonction qui fetch vers l'api
+export async function getRandomExcuse() {
+  console.log("je suis dans api");
+  const res = await axios.get(`${api_url}/api/excuses/random`);
+  console.log("response from api", res);
+  return res;
+}
+
+export async function getAllExcuses() {
+  console.log("je suis dans api");
+  const res = await axios.get(`${api_url}/api/excuses`);
+  console.log("response from api", res);
+  return res;
+}
+
+/* export const ExcusesApi = [
   "It's a browser issue",
   "I wasn't told how to do that so I had to guess which way they wanted it",
   "The accounting department made me put that there",
@@ -11,4 +34,4 @@ export const ExcusesApi = [
   "That must be a sales department error",
   "I had too many projects so I had to rush that feature",
   "I'm still working on that",
-];
+]; */
