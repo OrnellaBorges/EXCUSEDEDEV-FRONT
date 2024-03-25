@@ -1,12 +1,14 @@
 import React from "react";
+import { ExcuseType } from "../../types/ExcuseType";
 
 type SentenceProps = {
-  excuse: string;
+  randomExcuse: ExcuseType | null;
+  newExcuse: string;
 };
-export default function Sentence({ excuse }: SentenceProps) {
+export default function Sentence({ randomExcuse }: SentenceProps) {
   return (
     <div>
-      <p>"{excuse}"</p>
+      <p>{randomExcuse ? `"${randomExcuse.content}"` : "Loading..."}</p>
     </div>
   );
 }

@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import { MouseEventHandler } from "react";
 
 type HeaderProps = {
-  handleModalOpen: MouseEventHandler<HTMLButtonElement>;
+  /* handleModalOpen: MouseEventHandler<HTMLButtonElement>; */
 };
 
-export function Header({ handleModalOpen }: HeaderProps) {
+export function Header({}: /* handleModalOpen */ HeaderProps) {
   return (
     <header className="header">
       <div className="headerDiv">

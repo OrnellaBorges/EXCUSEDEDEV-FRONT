@@ -1,14 +1,13 @@
 import React from "react";
 
-export default function Button() {
+type ButtonProps = {
+  generateExcuse: () => void; // Fonction pour générer une nouvelle phrase
+};
+
+export default function Button({ generateExcuse }: ButtonProps) {
   return (
     <div>
-      <button
-        className="rounded-md bg-secondary-500 hover:bg-primary-500 p-2"
-        onClick={() => console.log("hello")}
-      >
-        Button
-      </button>
+      <button onClick={generateExcuse}>New Excuse</button>
     </div>
   );
 }

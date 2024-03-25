@@ -3,18 +3,18 @@ import { useState } from "react";
 
 type LayoutProps = {
   children: React.ReactNode;
-  handleModalOpen: () => void;
+  /* handleModalOpen: () => void; */
 };
 
-export function Layout({ children, handleModalOpen }: LayoutProps) {
-  const [showModal, setShowModal] = useState(false);
+export function Layout({ children /* handleModalOpen */ }: LayoutProps) {
+  /*  const [showModal, setShowModal] = useState(false);
 
   const toggleModal = () => {
     setShowModal(!showModal);
-  };
+  }; */
   return (
     <>
-      <Header handleModalOpen={handleModalOpen} />
+      <Header /* handleModalOpen={handleModalOpen} */ />
       {children}
     </>
   );

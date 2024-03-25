@@ -1,5 +1,5 @@
 import axios from "axios";
-//import { ResponsePlayerType } from "../types/playerType";
+import { ExcuseType } from "../types/ExcuseType";
 //const url = "https://data.latelier.co/training/tennis_stats/headtohead.json";
 
 //debut de l'url
