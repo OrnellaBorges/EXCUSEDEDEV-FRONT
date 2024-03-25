@@ -9,13 +9,35 @@ import "tailwindcss/tailwind.css";
 import "./App.css";
 
 export default function App() {
-  /*  const [openModal, setOpenModal] = useState(false);
+  /*  
+  const [openModal, setOpenModal] = useState(false);
   const [showModal, setShowModal] = useState<boolean>(false);
  */
-  const { isError, isLoading, randomExcuse } = useGetRandomExcuses();
-  console.log("randomExcuse dans app", randomExcuse);
 
-  const [updateExcuse, setUpdateExcuse] = useState();
+  const [excuse, setExcuse] = useState<string>("");
+  const { isError, isLoading, randomApiExcuse, tryGetRandomExcuse } =
+    useGetRandomExcuses();
+
+  //console.log("randomExcuse dans app", randomApiExcuse);
+
+  const generateExcuse = async () => {
+    console.log(
+      "je suis  dans la function generateExcuse click sur le bouton "
+    );
+    try {
+      console.log("execute la fonction pour recup des excuses random");
+      await tryGetRandomExcuse(); // Déclenche une nouvelle requête pour obtenir une excuse aléatoire
+      setExcuse(randomApiExcuse?.content || ""); // Met à jour l'excuse dans l'état local
+    } catch (error) {
+      console.log("je suis dans le catch");
+      console.error(
+        "Erreur lors de la récupération de l'excuse aléatoire:",
+        error
+      );
+    }
+  };
+
+  /* const [updateExcuse, setUpdateExcuse] = useState(); */
 
   // creer un state ici dans app qui va gerer l'état de la phrase
   //const [excuse, setExcuse] = useState<string>("Mon excuse de test");
@@ -36,7 +58,15 @@ export default function App() {
     <>
       <Layout>
         <Routes>
-          <Route path="/" element={<HomePage randomExcuse={randomExcuse} />} />
+          <Route
+            path="/"
+            element={
+              <HomePage
+                randomExcuse={randomApiExcuse}
+                newExcuse={generateExcuse}
+              />
+            }
+          />
         </Routes>
       </Layout>
     </>

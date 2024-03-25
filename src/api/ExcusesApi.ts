@@ -8,9 +8,9 @@ const api_url = "http://localhost:5000";
 
 // creer une fonction qui fetch vers l'api
 export async function getRandomExcuse() {
-  console.log("je suis dans api");
+  //console.log("je suis dans api");
   const res = await axios.get(`${api_url}/api/excuses/random`);
-  console.log("response from api", res);
+  //console.log("response from api", res);
   return res;
 }
 
@@ -19,6 +19,19 @@ export async function getAllExcuses() {
   const res = await axios.get(`${api_url}/api/excuses`);
   console.log("response from api", res);
   return res;
+}
+
+// creer une excuse
+export async function createOneExcuse(datas: string) {
+  console.log("datas", datas);
+  return axios
+    .post(`${api_url}/api/excuses/create`, datas)
+    .then((res) => {
+      return res.data;
+    })
+    .catch((err) => {
+      return err;
+    });
 }
 
 /* export const ExcusesApi = [

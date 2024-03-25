@@ -5,14 +5,14 @@ import { getRandomExcuse } from "../api/ExcusesApi";
 export function useGetRandomExcuses() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
-  const [randomExcuse, setRandomExcuse] = useState<ExcuseType | null>(null);
+  const [randomApiExcuse, setRandomExcuse] = useState<ExcuseType | null>(null);
 
   const tryGetRandomExcuse = async () => {
     setIsLoading(true);
     setIsError(false);
     try {
       const response /* : ResponsePlayerType */ = await getRandomExcuse();
-      console.log("response hook", response);
+      //àconsole.log("response hook", response);
 
       setRandomExcuse(response.data);
       setIsLoading(false);
@@ -35,6 +35,7 @@ export function useGetRandomExcuses() {
   return {
     isError: isError,
     isLoading: isLoading,
-    randomExcuse: randomExcuse,
+    randomApiExcuse: randomApiExcuse,
+    tryGetRandomExcuse,
   };
 }

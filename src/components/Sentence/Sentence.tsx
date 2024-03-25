@@ -5,7 +5,7 @@ type SentenceProps = {
   randomExcuse: ExcuseType | null;
   newExcuse: string;
 };
-export default function Sentence({ randomExcuse }: SentenceProps) {
+export default function Sentence({ randomExcuse, newExcuse }: SentenceProps) {
   return (
     <div>
       <p>{randomExcuse ? `"${randomExcuse.content}"` : "Loading..."}</p>
