@@ -7,7 +7,7 @@ type ModalProps = {
 
 export function ModalExcuse({ closeModal }: ModalProps) {
   return (
-    <div className="modalBackground">
+    <div className="overlay">
       <div className="modalContainer">
         <div className="titleCloseBtn">
           <button onClick={closeModal}>close</button>

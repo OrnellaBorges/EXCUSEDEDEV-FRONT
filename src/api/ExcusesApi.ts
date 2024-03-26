@@ -15,15 +15,15 @@ export async function getRandomExcuse() {
 }
 
 export async function getAllExcuses() {
-  console.log("je suis dans api");
+  //console.log("je suis dans api");
   const res = await axios.get(`${api_url}/api/excuses`);
-  console.log("response from api", res);
+  //console.log("response from api", res);
   return res;
 }
 
 // creer une excuse
 export async function createOneExcuse(datas: string) {
-  console.log("datas", datas);
+  //console.log("datas", datas);
   return axios
     .post(`${api_url}/api/excuses/create`, datas)
     .then((res) => {

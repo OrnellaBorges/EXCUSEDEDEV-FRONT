@@ -1,0 +1,25 @@
+.httpCode-Container {
+  max-width: 500px; /* Largeur maximale */
+  margin: 0 auto; /* Centrage horizontal */
+  padding: 20px; /* Espacement intérieur */
+  border: 1px solid #ccc; /* Bordure */
+  border-radius: 8px; /* Coins arrondis */
+}
+
+.foundedCode {
+  margin-bottom: 20px; /* Marge inférieure */
+}
+
+.code {
+  font-size: 1.2em; /* Taille de police pour le code */
+  font-weight: bold; /* Texte en gras */
+}
+
+.excuseMessage {
+  margin-top: 5px; /* Marge supérieure */
+}
+
+.missingCode {
+  color: red; /* Couleur du texte en rouge */
+  font-style: italic; /* Style de police italique */
+}

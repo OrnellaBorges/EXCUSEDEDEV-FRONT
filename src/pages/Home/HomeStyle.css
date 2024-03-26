@@ -60,10 +60,12 @@
   transition: opacity 1s ease-in-out;
 }
 
-/* 
-.main-home .welcome-button-container {
-  display: flex;
-  gap: 1rem;
-  border: 3px solid slateblue;
+.HttpCode {
+  background-color: #f0f0f0; /* Couleur de fond */
+  border: 1px solid #ccc; /* Bordure */
+  border-radius: 5px; /* Coins arrondis */
+  padding: 10px; /* Espacement intérieur */
+  margin: 10px 0; /* Marge extérieure */
+  font-size: 16px; /* Taille de police */
+  color: #333; /* Couleur du texte */
 }
- */

@@ -1,14 +1,15 @@
 import { Route, Routes } from "react-router-dom";
 import { Layout } from "./Layout";
 import { HomePage } from "./pages/Home/HomePage";
+import LostPage from "./pages/LostPage";
+import Error404 from "./pages/Error404";
+import HttpCode from "./pages/HttpCode";
 
 import { useGetRandomExcuses } from "./Hooks/useGetRandomExcuse"; // Import du hook
 import { useState } from "react";
 
 import "tailwindcss/tailwind.css";
 import "./App.css";
-import LostPage from "./pages/LostPage";
-import NotFound from "./pages/NotFound";
 
 export default function App() {
   /*  
@@ -53,7 +54,8 @@ export default function App() {
             }
           />
           <Route path="/lost" element={<LostPage />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<Error404 />} />
+          <Route path="/$http_code/:code" element={<HttpCode />} />
         </Routes>
       </Layout>
     </>
