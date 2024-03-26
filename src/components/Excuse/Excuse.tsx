@@ -1,7 +1,7 @@
-type SentenceProps = {
+type ExcuseProps = {
   randomExcuse: string | null;
 };
-export default function Sentence({ randomExcuse }: SentenceProps) {
+export default function Excuse({ randomExcuse }: ExcuseProps) {
   return (
     <p className="excuse">
       {randomExcuse ? `"${randomExcuse}"` : "Loading..."}

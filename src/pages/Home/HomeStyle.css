@@ -31,11 +31,12 @@
   font-size: 3rem;
   animation: fadeIn 2s;
   color: orange;
+  border: 2px solid;
 }
 
 .move {
-  top: -35%;
-  transition: 2s;
+  top: -100%;
+  transition: 3s;
   color: orangered;
 }
 

@@ -1,7 +1,5 @@
 import "./HomeStyle.css";
 
-import Sentence from "../../components/Sentence/Sentence";
-import Button from "../../components/Buttons/Button";
 import ExcuseCard from "../../components/ExcuseCard/ExcuseCard";
 
 type HomeProps = {

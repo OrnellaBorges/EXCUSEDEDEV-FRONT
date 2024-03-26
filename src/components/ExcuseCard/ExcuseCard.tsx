@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import Sentence from "../Sentence/Sentence";
+import Excuse from "../Excuse/Excuse";
 import Button from "../Buttons/Button";
 
 type ExcuseCardProps = {
@@ -30,11 +30,9 @@ export default function ExcuseCard({
     <div className="card">
       {/* <h1 className="title-level1 text-red-700"> Excuses de dev</h1> */}
 
-      <h1 className={!displayAnimation ? "title" : "title move"}>
-        Excuses de dev
-      </h1>
+      <h1 className={!displayAnimation ? "title" : "title move"}>Title</h1>
 
-      <Sentence randomExcuse={randomExcuse} />
+      <Excuse randomExcuse={randomExcuse} />
 
       <Button
         tryGetRandomExcuse={tryGetRandomExcuse}

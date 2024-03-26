@@ -31,8 +31,9 @@
 }
 
 .titleCloseBtn button {
-  background-color: transparent;
-  border: none;
+  /* background-color: transparent; */
+  /* border: none; */
+  background-color: brown;
   font-size: 25px;
   cursor: pointer;
 }
