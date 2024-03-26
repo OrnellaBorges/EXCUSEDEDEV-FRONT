@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 import Sentence from "../Sentence/Sentence";
 import Button from "../Buttons/Button";
 
@@ -10,22 +12,34 @@ export default function ExcuseCard({
   randomExcuse,
   tryGetRandomExcuse,
 }: ExcuseCardProps) {
+  // state du bouton et du titre
+  const [displayAnimation, setDisplayAnimation] = useState<boolean>(false);
+
+  // useEffect pour déclencher l'animation après le rendu initial
+  useEffect(() => {
+    const int = setTimeout(() => {
+      // appel de la fonction showButtonAndUpTitle après 2 secondes
+      setDisplayAnimation(true);
+    }, 2000);
+
+    // nettoyage du useEffect
+    return () => clearTimeout(int);
+  }, []);
+
   return (
-    <>
-      <h1 className="title-level1 text-red-700">EXCUSES DE DEV</h1>
-      {/* {excuse ? (
-      <Sentence newExcuse={excuse} />
-    ) : (
+    <div className="card">
+      {/* <h1 className="title-level1 text-red-700"> Excuses de dev</h1> */}
+
+      <h1 className={!displayAnimation ? "title" : "title move"}>
+        Excuses de dev
+      </h1>
+
       <Sentence randomExcuse={randomExcuse} />
-    )} */}
-      <Sentence randomExcuse={randomExcuse} />
-      {/*  <button
-    className="rounded-md bg-secondary-500 hover:bg-primary-500 p-2" 
-    onClick={() => handleClick()} 
-    >
-      Random Button
-    </button> */}
-      <Button tryGetRandomExcuse={tryGetRandomExcuse} />
-    </>
+
+      <Button
+        tryGetRandomExcuse={tryGetRandomExcuse}
+        animation={displayAnimation}
+      />
+    </div>
   );
 }

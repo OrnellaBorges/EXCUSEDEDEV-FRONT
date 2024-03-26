@@ -3,8 +3,8 @@ type SentenceProps = {
 };
 export default function Sentence({ randomExcuse }: SentenceProps) {
   return (
-    <div>
-      <p>{randomExcuse ? `"${randomExcuse}"` : "Loading..."}</p>
-    </div>
+    <p className="excuse">
+      {randomExcuse ? `"${randomExcuse}"` : "Loading..."}
+    </p>
   );
 }

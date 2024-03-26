@@ -10,20 +10,9 @@ type HomeProps = {
 };
 
 export function HomePage({ randomExcuse, tryGetRandomExcuse }: HomeProps) {
-  // fonction pour le bouton qui génère des nouvelles excuses aléatoirement.
-  /* const generateExcuse = () => {
-    const newExcuse = "nouvelle excuse";
-    //console.log("newExcuse", newExcuse);
-    setExcuse(newExcuse);
-  }; */
-
-  /*   useEffect(() => {
-    generateExcuse();
-  }, []); */
-
   return (
-    <main className="main-welcome">
-      <section className="section-welcome">
+    <main className="main">
+      <section className="section">
         <ExcuseCard
           randomExcuse={randomExcuse}
           tryGetRandomExcuse={tryGetRandomExcuse}
