@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import gifImage from "../assets/loaderGif.webp";
 
 export default function LostPage() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const redirectTimeout = setTimeout(() => {
+      navigate("/");
+    }, 5000);
+
+    return () => clearTimeout(redirectTimeout);
+  }, [navigate]);
+
   return (
-    <div className="w-full h-full items-center justify-center flex font-bold">
-      <div className="text-center">
-        <h1 className="text-8xl py-5">I'm lost!</h1>
-        <figure>
-          <img src="" alt="" />
-        </figure>
-      </div>
+    <div className="lost-page">
+      <h1>I’m lost</h1>
+      <img src={gifImage} alt="Lost GIF" />
     </div>
   );
 }

@@ -7,6 +7,8 @@ import { useState } from "react";
 
 import "tailwindcss/tailwind.css";
 import "./App.css";
+import LostPage from "./pages/LostPage";
+import NotFound from "./pages/NotFound";
 
 export default function App() {
   /*  
@@ -15,27 +17,10 @@ export default function App() {
  */
 
   const [excuse, setExcuse] = useState<string>("");
-  const { isError, isLoading, randomApiExcuse, tryGetRandomExcuse } =
+  const { isError, isLoading, randomExcuse, tryGetRandomExcuse } =
     useGetRandomExcuses();
 
   //console.log("randomExcuse dans app", randomApiExcuse);
-
-  const generateExcuse = async () => {
-    console.log(
-      "je suis  dans la function generateExcuse click sur le bouton "
-    );
-    try {
-      console.log("execute la fonction pour recup des excuses random");
-      await tryGetRandomExcuse(); // Déclenche une nouvelle requête pour obtenir une excuse aléatoire
-      setExcuse(randomApiExcuse?.content || ""); // Met à jour l'excuse dans l'état local
-    } catch (error) {
-      console.log("je suis dans le catch");
-      console.error(
-        "Erreur lors de la récupération de l'excuse aléatoire:",
-        error
-      );
-    }
-  };
 
   /* const [updateExcuse, setUpdateExcuse] = useState(); */
 
@@ -62,11 +47,13 @@ export default function App() {
             path="/"
             element={
               <HomePage
-                randomExcuse={randomApiExcuse}
-                newExcuse={generateExcuse}
+                randomExcuse={randomExcuse}
+                tryGetRandomExcuse={tryGetRandomExcuse}
               />
             }
           />
+          <Route path="/lost" element={<LostPage />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
     </>

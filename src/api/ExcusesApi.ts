@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ExcuseType } from "../types/ExcuseType";
+import { ApiExcuseType } from "../types/ApiExcuseType";
 //const url = "https://data.latelier.co/training/tennis_stats/headtohead.json";
 
 //debut de l'url
@@ -9,7 +9,7 @@ const api_url = "http://localhost:5000";
 // creer une fonction qui fetch vers l'api
 export async function getRandomExcuse() {
   //console.log("je suis dans api");
-  const res = await axios.get(`${api_url}/api/excuses/random`);
+  const res: ApiExcuseType = await axios.get(`${api_url}/api/excuses/random`);
   //console.log("response from api", res);
   return res;
 }

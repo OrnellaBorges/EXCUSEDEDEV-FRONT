@@ -1,20 +1,20 @@
 import { useState, useEffect } from "react";
-import { ExcuseType } from "../types/ExcuseType";
+import { ApiExcuseType, ExcuseType } from "../types/ApiExcuseType";
 import { getRandomExcuse } from "../api/ExcusesApi";
 
 export function useGetRandomExcuses() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
-  const [randomApiExcuse, setRandomExcuse] = useState<ExcuseType | null>(null);
+  const [randomExcuse, setRandomExcuse] = useState<string | null>(null);
 
   const tryGetRandomExcuse = async () => {
     setIsLoading(true);
     setIsError(false);
     try {
-      const response /* : ResponsePlayerType */ = await getRandomExcuse();
-      //àconsole.log("response hook", response);
+      const response: ApiExcuseType = await getRandomExcuse();
+      console.log("response hook", response);
 
-      setRandomExcuse(response.data);
+      setRandomExcuse(response.data.content);
       setIsLoading(false);
       return response; // Retourner la réponse complète de l'API
     } catch (error) {
@@ -33,9 +33,9 @@ export function useGetRandomExcuses() {
   }, []);
 
   return {
-    isError: isError,
-    isLoading: isLoading,
-    randomApiExcuse: randomApiExcuse,
+    isError,
+    isLoading,
+    randomExcuse,
     tryGetRandomExcuse,
   };
 }

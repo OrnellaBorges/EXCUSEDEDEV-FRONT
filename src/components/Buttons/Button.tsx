@@ -1,13 +1,9 @@
 import React from "react";
 
 type ButtonProps = {
-  generateExcuse: () => void; // Fonction pour générer une nouvelle phrase
+  tryGetRandomExcuse: () => void; // Fonction pour générer une nouvelle phrase
 };
 
-export default function Button({ generateExcuse }: ButtonProps) {
-  return (
-    <div>
-      <button onClick={generateExcuse}>New Excuse</button>
-    </div>
-  );
+export default function Button({ tryGetRandomExcuse }: ButtonProps) {
+  return <button onClick={tryGetRandomExcuse}>New Excuse</button>;
 }
