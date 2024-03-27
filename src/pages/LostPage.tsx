@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import lostGif from "../assets/lostGif.gif";
 
 export default function LostPage() {
-  const navigate = useNavigate();
+  /*  const navigate = useNavigate();
 
   useEffect(() => {
     const redirectTimeout = setTimeout(() => {
@@ -12,12 +12,12 @@ export default function LostPage() {
 
     return () => clearTimeout(redirectTimeout);
   }, [navigate]);
-
+ */
   return (
-    <div className="lostPage">
-      <h2>I'm lost</h2>
-      <figure className="gifContainer">
-        <img src={lostGif} alt="Gif lost" />
+    <div className="flex flew-grow flex-col justify-center items-center w-6/12 mx-auto border-3 border-solid border-black">
+      <h2 className="text-5xl ">I'm lost</h2>
+      <figure className="border-3 border-solid border-black">
+        <img src={lostGif} alt="Gif image lost Travolta" />
       </figure>
     </div>
   );

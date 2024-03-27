@@ -2,7 +2,7 @@ import "./HomeStyle.css";
 
 import ExcuseCard from "../../components/ExcuseCard/ExcuseCard";
 
-import Container from "../../components/Loader/Container";
+import Container from "../../components/LoaderBonus/Container";
 
 type HomeProps = {
   randomExcuse: string | null;
