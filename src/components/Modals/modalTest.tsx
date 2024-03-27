@@ -9,28 +9,44 @@ type ModalProps = {
 };
 
 export function ModalTest({ isOpen, setOpenModal }: ModalProps) {
-  const { newExcuse, isLoading, isError, createExcuse, setNewExcuse } =
-    useCreateExcuse();
+  const {
+    newExcuse,
+    isLoading,
+    isError,
+    createNewExcuse,
+    setNewExcuse,
+    setIsError,
+  } = useCreateExcuse();
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    console.log("hadleInputCHange", e.target.value);
-    setNewExcuse(e.target.value);
+    const value = e.target.value;
+    setNewExcuse(value);
     console.log("newExcuse", newExcuse);
   };
 
   //console.log("excuse dans modal", newExcuse);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    //console.log(event);
-    //console.log("target", event.target);
-    //console.log("value", event.target.value);
+
+    // gestion des erreurs de saisie
+
+    if (!newExcuse.trim()) {
+      setIsError(true);
+      return;
+    }
+
+    try {
+      const toto = await createNewExcuse(newExcuse);
+    } catch (error) {
+      console.log(error);
+    }
 
     // Vous pouvez implémenter la logique de validation ou d'enregistrement de l'excuse ici
     //createExcuse(e.target.value); // Appel à la fonction createExcuse
-    console.log("Excuse submitted:", newExcuse);
+    console.log("Excuse submitted dans le handlesubmit :", newExcuse);
     // Réinitialiser le champ d'excuse après la soumission
     //setExcuse("");
     // Fermer la modal
