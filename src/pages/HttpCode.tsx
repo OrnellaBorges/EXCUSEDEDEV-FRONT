@@ -23,7 +23,6 @@ export default function HttpCode() {
   console.log("testExcuse", excuseFounded);
 
   // UE de redirection
-
   useEffect(() => {
     const redirectTimer = setTimeout(() => {
       if (!excuseFounded) {

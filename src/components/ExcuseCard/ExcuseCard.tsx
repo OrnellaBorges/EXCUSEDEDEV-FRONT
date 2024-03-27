@@ -6,11 +6,13 @@ import Button from "../Buttons/Button";
 type ExcuseCardProps = {
   randomExcuse: string | null;
   tryGetRandomExcuse: () => void;
+  openModal: () => void;
 };
 
 export default function ExcuseCard({
   randomExcuse,
   tryGetRandomExcuse,
+  openModal,
 }: ExcuseCardProps) {
   // state du bouton et du titre
   const [displayAnimation, setDisplayAnimation] = useState<boolean>(false);
@@ -38,6 +40,12 @@ export default function ExcuseCard({
         tryGetRandomExcuse={tryGetRandomExcuse}
         animation={displayAnimation}
       />
+      <button
+        className={!displayAnimation ? "bouton hide" : "bouton show"}
+        onClick={openModal}
+      >
+        Ajouter Excuse
+      </button>
     </div>
   );
 }

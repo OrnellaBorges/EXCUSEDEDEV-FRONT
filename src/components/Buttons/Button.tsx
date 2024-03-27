@@ -11,7 +11,7 @@ export default function Button({ tryGetRandomExcuse, animation }: ButtonProps) {
       className={!animation ? "bouton hide" : "bouton show"}
       onClick={tryGetRandomExcuse}
     >
-      New Excuse
+      Random Excuse
     </button>
   );
 }

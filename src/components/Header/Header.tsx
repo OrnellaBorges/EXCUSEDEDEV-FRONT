@@ -14,7 +14,6 @@ export function Header({}: /* handleModalOpen */ HeaderProps) {
         <Link to="/">
           <h1 className="logo">FOREACH HEADER</h1>
         </Link>
-        <button>Create new Excuse</button>
       </div>
     </header>
   );

@@ -26,14 +26,18 @@ export function Input({
   // composant couteau suisse sui se customise ne fonction de la props inputType soit textarea ou input
 
   return (
-    <label>
-      {convertCamelCaseToWords(name)}
-      <Element
-        type={type ? type : "text"}
-        name={name}
-        onChange={handleChange}
-        required={required}
-      />
-    </label>
+    <div className="mb-4 flex flex-col">
+      <label className="block text-gray-500 font-normal md:text-right mb-1 md:mb-0 pr-4">
+        {convertCamelCaseToWords(name)}
+        <Element
+          className="border-2 border-rose-500 rounded-md "
+          type={type ? type : "text"}
+          name={name}
+          onChange={handleChange}
+          required={required}
+          placeholder="ecrivez votre excuse"
+        />
+      </label>
+    </div>
   );
 }
