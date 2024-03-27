@@ -21,11 +21,24 @@ export async function getAllExcuses() {
   return res;
 }
 
-// creer une excuse
+/* export async function createOneExcuse(datas: string) {
+  try {
+    const response = await axios.post(`${api_url}/api/excuses/create`, {
+      datas,
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error(
+      "Erreur lors de la création de l'excuse : " + error.message
+    );
+  }
+} */
+
+//creer une excuse
 export async function createOneExcuse(datas: string) {
   //console.log("datas", datas);
   return axios
-    .post(`${api_url}/api/excuses/create`, datas)
+    .post(`${api_url}/api/excuses/create`, { datas })
     .then((res) => {
       return res.data;
     })
