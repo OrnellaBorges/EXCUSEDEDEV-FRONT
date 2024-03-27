@@ -19,21 +19,6 @@ export default function App() {
   const { isError, isLoading, randomExcuse, tryGetRandomExcuse } =
     useGetRandomExcuses();
 
-  //console.log("randomExcuse dans app", randomApiExcuse);
-
-  /* const [updateExcuse, setUpdateExcuse] = useState(); */
-
-  // creer un state ici dans app qui va gerer l'état de la phrase
-  //const [excuse, setExcuse] = useState<string>("Mon excuse de test");
-
-  // un state qui se met a jour par un booleen si l'api renvoi une erreur ou pas
-  // ce state va permettre d'afficher au client le composant error404 si il est false
-  //const [apiStatus, setApiStatus] = useState<boolean>(true);
-
-  /*  const toggleModalTest = () => {
-    setShowModal(!showModal);
-  }; */
-
   const toggleModal = () => {
     setOpenModal(!openModal);
   };
@@ -48,6 +33,7 @@ export default function App() {
             path="/"
             element={
               <HomePage
+                isLoading={isLoading}
                 randomExcuse={randomExcuse}
                 tryGetRandomExcuse={tryGetRandomExcuse}
                 openModal={toggleModal}

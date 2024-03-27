@@ -1,19 +1,27 @@
 import { useState } from "react";
-import { createOneExcuse } from "../api/ExcusesApi";
+import { createNewExcuse } from "../api/ExcusesApi";
+import { NewExcuseType } from "../types/ApiExcuseType";
 
 export function useCreateExcuse() {
-  const [newExcuse, setNewExcuse] = useState<string>("");
-  const [isLoading, setIsLoading] = useState<boolean | null>(false);
-  const [isError, setIsError] = useState<boolean | null>(null);
+  const [newExcuse, setNewExcuse] = useState<{ tag: string; message: string }>({
+    tag: "",
+    message: "",
+  });
 
-  const createNewExcuse = async (newValue: string) => {
-    //setIsLoading(true);
-    //setIsError(null);
-    console.log("newValue", newValue);
+  const [isLoading, setIsLoading] = useState<boolean | null>(false);
+  const [isError, setIsError] = useState<boolean | null>(false);
+
+  const createExcuse = async (element: NewExcuseType) => {
+    setIsLoading(true);
+    setIsError(false);
+    console.log("je suis dans hook", element);
 
     try {
-      console.log("new excuse dans hook", newValue);
-      const tryCreateExcuse = await createOneExcuse(newValue);
+      console.log(
+        "dans le try du hook de la fonction CreateNewExcuse",
+        element
+      );
+      const tryCreateExcuse = await createNewExcuse(element);
       console.log("response", tryCreateExcuse);
 
       /* if (response.status === 200) {
@@ -34,7 +42,7 @@ export function useCreateExcuse() {
     newExcuse,
     isLoading,
     isError,
-    createNewExcuse,
+    createExcuse,
     setNewExcuse,
     setIsError,
   };

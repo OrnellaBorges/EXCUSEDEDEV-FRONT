@@ -13,7 +13,7 @@ export function ModalTest({ isOpen, setOpenModal }: ModalProps) {
     newExcuse,
     isLoading,
     isError,
-    createNewExcuse,
+    createExcuse,
     setNewExcuse,
     setIsError,
   } = useCreateExcuse();
@@ -21,8 +21,8 @@ export function ModalTest({ isOpen, setOpenModal }: ModalProps) {
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const value = e.target.value;
-    setNewExcuse(value);
+    const { name, value } = e.target;
+    setNewExcuse((prevState) => ({ ...prevState, [name]: value }));
     console.log("newExcuse", newExcuse);
   };
 
@@ -33,13 +33,8 @@ export function ModalTest({ isOpen, setOpenModal }: ModalProps) {
 
     // gestion des erreurs de saisie
 
-    if (!newExcuse.trim()) {
-      setIsError(true);
-      return;
-    }
-
     try {
-      const toto = await createNewExcuse(newExcuse);
+      const toto = await createExcuse(newExcuse);
     } catch (error) {
       console.log(error);
     }
@@ -65,6 +60,7 @@ export function ModalTest({ isOpen, setOpenModal }: ModalProps) {
         </button>
         <h2 className="title-level2">Créez votre nouvelle excuse</h2>
         <Input handleChange={handleInputChange} name="excuse" />
+        <Input handleChange={handleInputChange} name="tag" />
         <button type="submit">Valider</button>
       </div>
     </form>

@@ -12,9 +12,9 @@ export function useGetRandomExcuses() {
     setIsError(false);
     try {
       const response: ApiExcuseType = await getRandomExcuse();
-      // console.log("response hook", response);
+      console.log("response hook", response.data.message);
 
-      setRandomExcuse(response.data.content);
+      setRandomExcuse(response.data.message);
       setIsLoading(false);
       return response; // Retourner la réponse complète de l'API
     } catch (error) {

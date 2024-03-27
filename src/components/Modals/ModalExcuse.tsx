@@ -13,7 +13,7 @@ export function ModalExcuse({ closeModal }: ModalProps) {
           <button onClick={closeModal}>close</button>
         </div>
 
-        <div className="title">
+        <div className="title-level2">
           <h2>Modal title </h2>
         </div>
 

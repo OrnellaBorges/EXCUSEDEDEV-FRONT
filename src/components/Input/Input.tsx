@@ -35,7 +35,6 @@ export function Input({
           name={name}
           onChange={handleChange}
           required={required}
-          placeholder="ecrivez votre excuse"
         />
       </label>
     </div>

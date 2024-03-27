@@ -1,16 +1,14 @@
 import axios from "axios";
-import { ApiExcuseType } from "../types/ApiExcuseType";
+import { ApiExcuseType, NewExcuseType } from "../types/ApiExcuseType";
 //const url = "https://data.latelier.co/training/tennis_stats/headtohead.json";
 
 //debut de l'url
 const api_url = "http://localhost:5000";
 //import { config } from "../../config";
 
-// creer une fonction qui fetch vers l'api
+// Recup des excuses aleatoires
 export async function getRandomExcuse() {
-  //console.log("je suis dans api");
-  const res: ApiExcuseType = await axios.get(`${api_url}/api/excuses/random`);
-  //console.log("response from api", res);
+  const res: ApiExcuseType = await axios.get(`${api_url}/api/randomExcuse`);
   return res;
 }
 
@@ -21,15 +19,31 @@ export async function getAllExcuses() {
   return res;
 }
 
-// creer une excuse
-export async function createOneExcuse(datas: string) {
-  //console.log("datas", datas);
+// fonction de creation d'une excuse
+/* export async function createOneExcuse(excuse: string) {
+  console.log("je suis dans excuseApi", excuse);
   return axios
-    .post(`${api_url}/api/excuses/create`, datas)
+    .post(`${api_url}/api/excuses/create`, [excuse])
     .then((res) => {
       return res.data;
     })
     .catch((err) => {
       return err;
     });
+} */
+
+export async function createNewExcuse(element: NewExcuseType) {
+  console.log("je suis dans excuseApi", element);
+  try {
+    console.log("je suis dans le try de la function createNewExcuse");
+    const response = await axios.post(`${api_url}/api/addExcuse`, [element]);
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Une erreur s'est produite lors de la création de l'excuse :",
+      error
+    );
+    throw error; // Vous pouvez choisir de relancer l'erreur ou de la gérer différemment ici
+  }
 }
