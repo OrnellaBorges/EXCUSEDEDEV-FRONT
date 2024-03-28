@@ -33,9 +33,9 @@ export default function ExcuseCard({
 
   return (
     <div className="card">
-      {/* <h1 className="title-level1 text-red-700"> Excuses de dev</h1> */}
-
-      <h1 className={!displayAnimation ? "title" : "title move"}>Title</h1>
+      <h1 className={!displayAnimation ? "title" : "title move"}>
+        Excuses de dev
+      </h1>
 
       {isLoading ? (
         <Loader isLoading={isLoading} />
@@ -48,7 +48,7 @@ export default function ExcuseCard({
         animation={displayAnimation}
       />
       <button
-        className={!displayAnimation ? "bouton hide" : "bouton show"}
+        className={!displayAnimation ? "button hide" : "button show"}
         onClick={openModal}
       >
         Ajouter Excuse

@@ -2,10 +2,7 @@ import { useState, useEffect } from "react";
 import { getAllExcuses } from "../api/ExcusesApi";
 
 import {
-  ApiHttpCodeExcuseType,
   HttpCodeExcuse,
-  HttpCodeExcusesDataState,
-  HttpCodeExcusesDataActions,
   HttpCodeExcusesDataHook,
 } from "../types/HttpCodeExcuseType";
 

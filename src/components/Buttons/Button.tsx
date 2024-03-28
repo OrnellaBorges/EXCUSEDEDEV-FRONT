@@ -8,7 +8,7 @@ type ButtonProps = {
 export default function Button({ tryGetRandomExcuse, animation }: ButtonProps) {
   return (
     <button
-      className={!animation ? "bouton hide" : "bouton show"}
+      className={!animation ? "button hide" : "button show"}
       onClick={tryGetRandomExcuse}
     >
       Random Excuse

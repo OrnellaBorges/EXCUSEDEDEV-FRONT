@@ -6,7 +6,7 @@ import Error404 from "./pages/Error404";
 import HttpCode from "./pages/HttpCode";
 import { ModalTest } from "./components/Modals/modalTest";
 
-import { useGetRandomExcuses } from "./Hooks/useGetRandomExcuse"; // Import du hook
+import { useGetRandomExcuses } from "./Hooks/useGetRandomExcuse";
 import { useState } from "react";
 
 import "tailwindcss/tailwind.css";
@@ -15,7 +15,6 @@ import "./App.css";
 export default function App() {
   const [openModal, setOpenModal] = useState<boolean>(false);
 
-  const [excuse, setExcuse] = useState<string>("");
   const { isError, isLoading, randomExcuse, tryGetRandomExcuse } =
     useGetRandomExcuses();
 

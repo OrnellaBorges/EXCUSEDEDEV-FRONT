@@ -31,10 +31,10 @@ export function ModalTest({ isOpen, setOpenModal }: ModalProps) {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    // gestion des erreurs de saisie
+    // gestion des erreurs de saisie à faire
 
     try {
-      const toto = await createExcuse(newExcuse);
+      const tryAddExcuse = await createExcuse(newExcuse);
     } catch (error) {
       console.log(error);
     }
@@ -59,7 +59,7 @@ export function ModalTest({ isOpen, setOpenModal }: ModalProps) {
           X
         </button>
         <h2 className="title-level2">Créez votre nouvelle excuse</h2>
-        <Input handleChange={handleInputChange} name="excuse" />
+        <Input handleChange={handleInputChange} name="message" />
         <Input handleChange={handleInputChange} name="tag" />
         <button type="submit">Valider</button>
       </div>

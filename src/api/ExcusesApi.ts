@@ -36,7 +36,7 @@ export async function createNewExcuse(element: NewExcuseType) {
   console.log("je suis dans excuseApi", element);
   try {
     console.log("je suis dans le try de la function createNewExcuse");
-    const response = await axios.post(`${api_url}/api/addExcuse`, [element]);
+    const response = await axios.post(`${api_url}/api/addExcuse`, element);
     console.log(response.data);
     return response.data;
   } catch (error) {

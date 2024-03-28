@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-//import Data from "../api/Data";
 import { useParams, Navigate } from "react-router-dom";
 import { useHttpCodeExcusesData } from "../Hooks/useHttpCodeExcusesData";
 
@@ -22,7 +21,7 @@ export default function HttpCode() {
   );
   console.log("excuseFounded", excuseFounded);
 
-  /*   // UE de redirection
+  // UE de redirection
   useEffect(() => {
     const redirectTimer = setTimeout(() => {
       if (!excuseFounded) {
@@ -31,7 +30,7 @@ export default function HttpCode() {
     }, 5000);
 
     return () => clearTimeout(redirectTimer);
-  }, [excuseFounded]); // se déclanche uniquement lorsque excuseFounded il y a quelque chose */
+  }, [excuseFounded]); // se déclanche uniquement lorsque excuseFounded il y a quelque chose
 
   return (
     <div className="httpCode-Container">

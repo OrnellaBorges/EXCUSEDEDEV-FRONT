@@ -3,7 +3,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 3px solid red;
   height: 93vh;
 }
 
@@ -12,8 +11,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /*   height: 100%; */
-  border: 3px solid blue;
 }
 
 .card {
@@ -21,23 +18,20 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 3px solid green;
 }
 
+/*BONUS*/
 .title {
   text-transform: uppercase;
   position: relative;
   top: 0;
   font-size: 3rem;
   animation: fadeIn 2s;
-  color: orange;
-  border: 2px solid;
 }
 
 .move {
-  top: -100%;
+  top: -80%;
   transition: 3s;
-  color: orangered;
 }
 
 .excuse {
@@ -45,19 +39,20 @@
   justify-content: center;
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: olive;
 }
 
-.bouton.hide {
+.button.hide {
   margin-top: 1rem;
   opacity: 0;
   visibility: hidden;
 }
 
-.bouton.show {
+.button.show {
   margin-top: 1rem;
   opacity: 1;
   transition: opacity 1s ease-in-out;
+  border: 1px solid gray;
+  padding: 0.5rem;
 }
 
 .HttpCode {
