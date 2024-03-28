@@ -25,7 +25,7 @@ export default function ExcuseCard({
     const int = setTimeout(() => {
       // appel de la fonction showButtonAndUpTitle après 2 secondes
       setDisplayAnimation(true);
-    }, 1000);
+    }, 2000);
 
     // nettoyage du useEffect
     return () => clearTimeout(int);

@@ -26,20 +26,19 @@
   margin-top: 10px;
 }
 
-.titleCloseBtn {
+.closeBtn {
   display: flex;
   justify-content: flex-end;
 }
 
-.titleCloseBtn button {
-  /* background-color: transparent; */
-  /* border: none; */
-  background-color: brown;
-  font-size: 25px;
-  cursor: pointer;
+.modalContainer .form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
 }
 
-.modalContainer .body {
+/* .modalContainer .body {
   flex: 50%;
   display: flex;
   justify-content: center;
@@ -47,15 +46,15 @@
   font-size: 1.7rem;
   text-align: center;
 }
-
-.modalContainer .footer {
+ */
+/* .modalContainer .footer {
   flex: 20%;
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
-/* .modalContainer .footer button {
+.modalContainer .buttonValidation {
   width: 150px;
   height: 45px;
   margin: 10px;
@@ -66,7 +65,3 @@
   font-size: 20px;
   cursor: pointer;
 }
-
-#cancelBtn {
-  background-color: crimson;
-} */

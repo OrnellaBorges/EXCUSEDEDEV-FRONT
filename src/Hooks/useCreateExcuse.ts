@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createNewExcuse } from "../api/ExcusesApi";
-import { NewExcuseType } from "../types/ApiExcuseType";
+import { NewExcuseType } from "../Types/ApiExcuseType";
 
 export function useCreateExcuse() {
   const [newExcuse, setNewExcuse] = useState<{ tag: string; message: string }>({
@@ -24,13 +24,7 @@ export function useCreateExcuse() {
       const tryCreateExcuse = await createNewExcuse(element);
       console.log("response", tryCreateExcuse);
 
-      /* if (response.status === 200) {
-        console.log("message ok le status api est 200");
-      } */
-
-      //console.log("Excuse created:", tryCreateExcuse.data);
       setIsError(false);
-      //setNewExcuse(""); // Réinitialiser l'excuse après la création
     } catch (error) {
       setIsError(true);
     } finally {

@@ -1,5 +1,3 @@
-import React from "react";
-
 type ButtonProps = {
   tryGetRandomExcuse: () => void; // Fonction pour générer une nouvelle phrase
   animation: boolean;

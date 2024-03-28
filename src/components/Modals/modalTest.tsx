@@ -26,8 +26,6 @@ export function ModalTest({ isOpen, setOpenModal }: ModalProps) {
     console.log("newExcuse", newExcuse);
   };
 
-  //console.log("excuse dans modal", newExcuse);
-
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -35,17 +33,12 @@ export function ModalTest({ isOpen, setOpenModal }: ModalProps) {
 
     try {
       const tryAddExcuse = await createExcuse(newExcuse);
+      return tryAddExcuse;
     } catch (error) {
       console.log(error);
     }
 
-    // Vous pouvez implémenter la logique de validation ou d'enregistrement de l'excuse ici
-    //createExcuse(e.target.value); // Appel à la fonction createExcuse
-    console.log("Excuse submitted dans le handlesubmit :", newExcuse);
-    // Réinitialiser le champ d'excuse après la soumission
-    //setExcuse("");
-    // Fermer la modal
-    //setOpenModal();
+    //console.log("Excuse submitted dans le handlesubmit :", newExcuse);
   };
 
   if (!isOpen) {
@@ -53,16 +46,21 @@ export function ModalTest({ isOpen, setOpenModal }: ModalProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="overlay">
-      <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-        <button className="close" onClick={setOpenModal}>
+    <div className="overlay">
+      <div className="modalContainer">
+        <button className="closeBtn" onClick={setOpenModal}>
           X
         </button>
         <h2 className="title-level2">Créez votre nouvelle excuse</h2>
-        <Input handleChange={handleInputChange} name="message" />
-        <Input handleChange={handleInputChange} name="tag" />
-        <button type="submit">Valider</button>
+        <form onSubmit={handleSubmit} className="form">
+          <Input handleChange={handleInputChange} name="message" />
+          <Input handleChange={handleInputChange} name="tag" />
+          <button className="buttonValidation" type="submit">
+            Valider
+          </button>
+        </form>
+        {/* afficher un message si tou s'est bien passé*/}
       </div>
-    </form>
+    </div>
   );
 }

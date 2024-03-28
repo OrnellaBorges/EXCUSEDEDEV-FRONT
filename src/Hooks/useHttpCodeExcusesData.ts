@@ -4,7 +4,7 @@ import { getAllExcuses } from "../api/ExcusesApi";
 import {
   HttpCodeExcuse,
   HttpCodeExcusesDataHook,
-} from "../types/HttpCodeExcuseType";
+} from "../Types/HttpCodeExcuseType";
 
 export function useHttpCodeExcusesData(): HttpCodeExcusesDataHook {
   // Initialiser le state
