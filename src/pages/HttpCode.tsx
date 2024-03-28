@@ -11,7 +11,7 @@ export default function HttpCode() {
   const { code } = useParams();
   console.log("code obtenu dans l'url: ", code);
 
-  // je récupère également la liste des httpCode de mon hookperso et la fonction
+  // je récupère également la liste des excuses de mon hookperso et sa fonction
   const { HttpCodeExcusesData, setHttpCodeExcusesData } =
     useHttpCodeExcusesData();
   console.log("HttpCodeExcusesData dans composant", HttpCodeExcusesData);
@@ -20,9 +20,9 @@ export default function HttpCode() {
   const excuseFounded = HttpCodeExcusesData.find(
     (element) => element.http_code === Number(code)
   );
-  console.log("testExcuse", excuseFounded);
+  console.log("excuseFounded", excuseFounded);
 
-  // UE de redirection
+  /*   // UE de redirection
   useEffect(() => {
     const redirectTimer = setTimeout(() => {
       if (!excuseFounded) {
@@ -31,7 +31,7 @@ export default function HttpCode() {
     }, 5000);
 
     return () => clearTimeout(redirectTimer);
-  }, [excuseFounded]); // se déclanche uniquement lorsque excuseFounded il y a quelque chose
+  }, [excuseFounded]); // se déclanche uniquement lorsque excuseFounded il y a quelque chose */
 
   return (
     <div className="httpCode-Container">

@@ -1,30 +1,38 @@
-import { useState } from "react";
-//import des types
+import { useState, useEffect } from "react";
+import { getAllExcuses } from "../api/ExcusesApi";
+
 import {
+  ApiHttpCodeExcuseType,
   HttpCodeExcuse,
   HttpCodeExcusesDataState,
   HttpCodeExcusesDataActions,
   HttpCodeExcusesDataHook,
 } from "../types/HttpCodeExcuseType";
 
-// hook personnalisé qui contient le state de la liste http_code
-// POUR le typage je me suis aidé de ChatGpT car je comprenais rien du tout
 export function useHttpCodeExcusesData(): HttpCodeExcusesDataHook {
-  // state liste des http_code excuses
-  const initialHttpCodeExcuseData: HttpCodeExcuse[] = [
-    { http_code: 701, tag: "Inexcusable", message: "Meh" },
-    { http_code: 702, tag: "Inexcusable", message: "Emacs" },
-    { http_code: 720, tag: "Edge Cases", message: "Unpossible" },
-    { http_code: 721, tag: "Edge Cases", message: "Known Unknowns" },
-    { http_code: 722, tag: "Edge Cases", message: "Unknown Unknowns" },
-    { http_code: 723, tag: "Edge Cases", message: "Tricky" },
-  ];
-
-  // state ???
+  // Initialiser le state
   const [HttpCodeExcusesData, setHttpCodeExcusesData] = useState<
     HttpCodeExcuse[]
-  >(initialHttpCodeExcuseData);
+  >([]);
 
-  //je retourne la liste et la fonction qui permet de modifier cette liste
+  const tryGetAllExcuses = async () => {
+    try {
+      const res: HttpCodeExcuse[] = await getAllExcuses();
+      console.log("res", res);
+      setHttpCodeExcusesData(res);
+    } catch (error) {
+      console.error(
+        "Erreur lors de la récupération d'une excuse aléatoire:",
+        error
+      );
+      throw error;
+    }
+  };
+
+  useEffect(() => {
+    tryGetAllExcuses();
+  }, []);
+
+  // Retourner le state et la fonction de mise à jour du state
   return { HttpCodeExcusesData, setHttpCodeExcusesData };
 }

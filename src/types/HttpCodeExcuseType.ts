@@ -4,6 +4,15 @@ export type HttpCodeExcuse = {
   message: string;
 };
 
+export type ApiHttpCodeExcuseType = {
+  config: any;
+  data: HttpCodeExcuse[];
+  headers: any;
+  request: any;
+  status: number;
+  statusText: string;
+};
+
 export type HttpCodeExcusesDataState = {
   HttpCodeExcusesData: HttpCodeExcuse[];
 };

@@ -30,7 +30,7 @@ export function Input({
       <label className="block text-gray-500 font-normal md:text-right mb-1 md:mb-0 pr-4">
         {convertCamelCaseToWords(name)}
         <Element
-          className="border-2 border-rose-500 rounded-md "
+          className="border-2 border-gray-300 rounded-md "
           type={type ? type : "text"}
           name={name}
           onChange={handleChange}

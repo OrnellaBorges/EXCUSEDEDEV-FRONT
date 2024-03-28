@@ -1,10 +1,8 @@
 import axios from "axios";
 import { ApiExcuseType, NewExcuseType } from "../types/ApiExcuseType";
-//const url = "https://data.latelier.co/training/tennis_stats/headtohead.json";
+import { ApiHttpCodeExcuseType } from "../types/HttpCodeExcuseType";
 
-//debut de l'url
 const api_url = "http://localhost:5000";
-//import { config } from "../../config";
 
 // Recup des excuses aleatoires
 export async function getRandomExcuse() {
@@ -14,9 +12,11 @@ export async function getRandomExcuse() {
 
 export async function getAllExcuses() {
   //console.log("je suis dans api");
-  const res = await axios.get(`${api_url}/api/excuses`);
+  const res: ApiHttpCodeExcuseType = await axios.get(
+    `${api_url}/api/allExcuses`
+  );
   //console.log("response from api", res);
-  return res;
+  return res.data;
 }
 
 // fonction de creation d'une excuse
