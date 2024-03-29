@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createNewExcuse } from "../api/ExcusesApi";
-import { NewExcuseType } from "../Types/ApiExcuseType";
+import { NewExcuseType } from "../types/ApiExcuseType";
 
 export function useCreateExcuse() {
   const [newExcuse, setNewExcuse] = useState<{ tag: string; message: string }>({

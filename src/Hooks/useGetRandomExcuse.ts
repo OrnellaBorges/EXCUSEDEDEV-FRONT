@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ApiExcuseType, ExcuseType } from "../Types/ApiExcuseType";
+import { ApiExcuseType, ExcuseType } from "../types/ApiExcuseType";
 import { getRandomExcuse } from "../api/ExcusesApi";
 
 export function useGetRandomExcuses() {

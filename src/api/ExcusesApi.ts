@@ -1,6 +1,6 @@
 import axios from "axios";
-import { ApiExcuseType, NewExcuseType } from "../Types/ApiExcuseType";
-import { ApiHttpCodeExcuseType } from "../Types/HttpCodeExcuseType";
+import { ApiExcuseType, NewExcuseType } from "../types/ApiExcuseType";
+import { ApiHttpCodeExcuseType } from "../types/HttpCodeExcuseType";
 
 const api_url = "http://localhost:5000";
 

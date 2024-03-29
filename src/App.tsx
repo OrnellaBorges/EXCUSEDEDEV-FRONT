@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 import { Layout } from "./Layout";
-import { HomePage } from "./Pages/Home/HomePage";
-import LostPage from "./Pages/LostPage";
-import Error404 from "./Pages/Error404";
-import HttpCode from "./Pages/HttpCode";
-import { ModalTest } from "./components/Modals/ModalTest";
+import { HomePage } from "./pages/Home/HomePage";
+import LostPage from "./pages/LostPage";
+import Error404 from "./pages/Error404";
+import HttpCode from "./pages/HttpCode";
+import { ModalTest } from "./components/Modals/modalTest";
 
 import { useGetRandomExcuses } from "./Hooks/useGetRandomExcuse";
 import { useState } from "react";

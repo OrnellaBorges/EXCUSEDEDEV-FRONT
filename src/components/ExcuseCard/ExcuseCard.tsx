@@ -9,6 +9,7 @@ type ExcuseCardProps = {
   randomExcuse: string | null;
   tryGetRandomExcuse: () => void;
   openModal: () => void;
+  animation: boolean;
 };
 
 export default function ExcuseCard({
@@ -16,39 +17,19 @@ export default function ExcuseCard({
   tryGetRandomExcuse,
   openModal,
   isLoading,
+  animation,
 }: ExcuseCardProps) {
-  // state du bouton et du titre
-  const [displayAnimation, setDisplayAnimation] = useState<boolean>(false);
-
-  // useEffect pour déclencher l'animation après le rendu initial
-  useEffect(() => {
-    const int = setTimeout(() => {
-      // appel de la fonction showButtonAndUpTitle après 2 secondes
-      setDisplayAnimation(true);
-    }, 2000);
-
-    // nettoyage du useEffect
-    return () => clearTimeout(int);
-  }, []);
-
   return (
     <div className="card">
-      <h1 className={!displayAnimation ? "title" : "title move"}>
-        Excuses de dev
-      </h1>
-
       {isLoading ? (
         <Loader isLoading={isLoading} />
       ) : (
         <Excuse randomExcuse={randomExcuse} />
       )}
 
-      <Button
-        tryGetRandomExcuse={tryGetRandomExcuse}
-        animation={displayAnimation}
-      />
+      <Button tryGetRandomExcuse={tryGetRandomExcuse} animation={animation} />
       <button
-        className={!displayAnimation ? "button hide" : "button show"}
+        className={!animation ? "button hide" : "button show"}
         onClick={openModal}
       >
         Ajouter Excuse
