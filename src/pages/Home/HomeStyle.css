@@ -24,12 +24,12 @@
   align-items: center;
   border: 2px solid orange;
   width: 100%;
+  transition: height 0.3s ease;
 }
 
 /*BONUS*/
 .title {
   text-transform: uppercase;
-  position: relative;
   top: 0;
   font-size: var(--title-level1-mobile);
   animation: fadeIn 2s;
